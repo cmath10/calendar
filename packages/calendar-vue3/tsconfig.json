@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "preserveValueImports": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
+    "types": [
+      "@types/jest",
+      "@vue/compiler-core/dist/compiler-core",
+      "@vue/compiler-dom/dist/compiler-dom",
+      "@vue/compiler-sfc/dist/compiler-sfc",
+      "@vue/compiler-ssr/dist/compiler-ssr",
+      "@vue/reactivity/dist/reactivity",
+      "@vue/runtime-core/dist/runtime-core",
+      "@vue/runtime-dom/dist/runtime-dom"
+    ],
+    "useDefineForClassFields": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.test.ts"
+  ]
+}

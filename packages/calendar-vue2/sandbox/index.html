@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta charset="utf8" />
+        <title>Calendar for Vue 2</title>
+        <link href="../dist/calendar-vue2.css" rel="stylesheet" />
+        <style>
+            .months {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -36px;
+                margin-right: -36px;
+            }
+
+            .months > div {
+                padding-left: 36px;
+                padding-right: 36px;
+                margin-bottom: 36px;
+            }
+
+            .v-calendar {
+                width: 252px;
+            }
+            .v-calendar__weekday,
+            .v-calendar__day {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+            }
+
+            .v-calendar__weekday {
+                color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="importmap">
+          {
+            "imports": {
+              "@cmath10/calendar-core": "../node_modules/@cmath10/calendar-core/dist/calendar-core.esm.js",
+              "vue": "../node_modules/vue/dist/vue.esm.browser.js"
+            }
+          }
+        </script>
+        <script type="module" src="../dist/calendar-vue2.esm.js"></script>
+        <script type="module">
+          import Vue from 'vue'
+          import { VCalendar } from '../dist/calendar-vue2.esm.js'
+
+          new Vue({
+            data: () => ({
+              months: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+              ],
+            }),
+
+            render (h) {
+              return h('div', { class: 'months' }, this.months.map((name, month) => h('div', [
+                h('div', name),
+                h(VCalendar, {
+                  props: {
+                    date: new Date(2022, month),
+                    firstDayOfWeek: 1,
+                    onlySameMonth: true
+                  }
+                }),
+              ])))
+            },
+          }).$mount('#app')
+        </script>
+    </body>
+</html>

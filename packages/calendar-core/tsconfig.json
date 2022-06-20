@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "lib": ["es2017", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "target": "ES5",
+    "types": [
+      "@types/jest",
+      "node"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.test.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

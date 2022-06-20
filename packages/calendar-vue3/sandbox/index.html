@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset="utf8" />
+        <title>Calendar for Vue 3</title>
+        <link href="../dist/calendar-vue3.css" rel="stylesheet" />
+        <style>
+            .months {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -36px;
+                margin-right: -36px;
+            }
+
+            .months > div {
+                padding-left: 36px;
+                padding-right: 36px;
+                margin-bottom: 36px;
+            }
+
+            .v-calendar {
+                width: 252px;
+            }
+            .v-calendar__weekday,
+            .v-calendar__day {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+            }
+
+            .v-calendar__weekday {
+                color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="importmap">
+          {
+            "imports": {
+              "@cmath10/calendar-core": "../node_modules/@cmath10/calendar-core/dist/calendar-core.esm.js",
+              "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+            }
+          }
+        </script>
+        <script type="module" src="../dist/calendar-vue3.esm.js"></script>
+        <script type="module">
+          import { createApp, h } from 'vue'
+          import { Calendar } from '@cmath10/calendar-core'
+          import { VCalendar } from '../dist/calendar-vue3.esm.js'
+
+          createApp({
+            data: () => ({
+              months: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+              ],
+            }),
+
+            render () {
+              return h('div', { class: 'months' }, this.months.map((name, index) => h('div', [
+                h('div', name),
+                h(VCalendar, {
+                  date: new Calendar.Day(2022, index + 1),
+                  firstDayOfWeek: 1,
+                  onlySameMonth: true
+                }),
+              ])))
+            }
+          }).mount('#app')
+        </script>
+    </body>
+</html>
