@@ -14,4 +14,5 @@ jobs:
             - run: docker-compose pull
             - run: docker-compose run --rm node yarn
             - run: docker-compose run --rm node yarn bootstrap
+            - run: docker-compose run --rm node yarn build
             - run: docker-compose run --rm node yarn test
