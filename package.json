@@ -12,9 +12,17 @@
     "publish:ci": "lerna publish --yes --no-verify-access",
     "test": "lerna run test --no-sort"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/vue",
+      "**/vue/**",
+      "**/vue-i18n",
+      "**/vue-i18n/**"
+    ]
+  },
   "devDependencies": {
     "lerna": "^5.1.4"
   },
